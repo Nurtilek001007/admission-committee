@@ -1,0 +1,48 @@
+create table students(
+    id serial primary key,
+    name varchar,
+    surname varchar,
+    department varchar,
+    email varchar,
+    unt int
+);
+
+insert into students values
+(1, 'Nurtilek', 'Beisenbay', 'HR', 'beisenbaynurtilek5@gmail.com', 124);
+
+CREATE TABLE employees (
+       id serial primary key,
+       name varchar,
+       surname varchar,
+       department varchar,
+       salary int
+);
+
+insert into employees values
+(1, 'Ryan', 'Gosling', 'HR', 1000);
+
+CREATE TABLE users (
+   username varchar primary key,
+   password varchar,
+   enabled int
+) ;
+
+CREATE TABLE authorities (
+     username varchar,
+     authority varchar,
+     FOREIGN KEY (username) references users(username)
+) ;
+
+INSERT INTO users (username, password, enabled)
+VALUES
+    ('kent', '{noop}kent', 1),
+    ('simon', '{noop}simon', 1),
+    ('sake', '{noop}sake', 1);
+
+INSERT INTO authorities (username, authority)
+VALUES
+    ('kent', 'ROLE_EMPLOYEE'),
+    ('simon', 'ROLE_HR'),
+    ('sake', 'ROLE_HR'),
+    ('sake', 'ROLE_MANAGER');
+
