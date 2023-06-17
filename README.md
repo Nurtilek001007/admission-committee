@@ -1,1 +1,1 @@
-# var3_Beisenbay
+# admission committee
